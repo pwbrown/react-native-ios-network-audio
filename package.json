@@ -1,0 +1,42 @@
+{
+  "name": "react-native-ios-network-audio",
+  "version": "0.0.1",
+  "tags": [
+    "react",
+    "native",
+    "ios",
+    "audio",
+    "player",
+    "url"
+  ],
+  "description": "Audio player implementation for web-based url audio clips using ios standards",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pwbrown/react-native-ios-network-audio.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "ios",
+    "audio",
+    "player",
+    "url"
+  ],
+  "author": {
+    "name": "Philip Brown",
+    "email": "brown.philip1294@yahoo.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/pwbrown/react-native-ios-network-audio/issues"
+  },
+  "dependencies": {
+    "react-native": "*"
+  }
+}
