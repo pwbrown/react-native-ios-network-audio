@@ -30,3 +30,8 @@ audio.play();
 //To pause audio clip
 audio.pause();
 ```
+
+## Later Additions
+1. Listener for current Time
+2. Listener for volume Level
+3. Audio queue
