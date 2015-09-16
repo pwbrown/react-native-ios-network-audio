@@ -18,9 +18,9 @@ audio.initWithURL("http://your_audio_url_here");
 audio.getDuration((duration) => {
 	//do what you need with duration variable
 	//***Example
-	//var minutes = Math.floor(duration/60);
-	//var seconds = Math.ceil((duration/60 - minutes) * 60);
-	//this.setState({minutes: minutes, seconds: seconds, totalSeconds: duration});
+	var minutes = Math.floor(duration/60);
+	var seconds = Math.ceil((duration/60 - minutes) * 60);
+	this.setState({minutes: minutes, seconds: seconds, totalSeconds: duration});
 });
 
 //To play audio clip
