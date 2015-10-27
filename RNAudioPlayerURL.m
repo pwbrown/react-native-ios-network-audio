@@ -14,17 +14,14 @@ RCT_EXPORT_METHOD(initWithURL:(NSString *)url){
   NSURL *soundUrl = [[NSURL alloc] initWithString:url];
   self.audioItem = [AVPlayerItem playerItemWithURL:soundUrl];
   self.audioPlayer = [AVPlayer playerWithPlayerItem:self.audioItem];
-//  [[NSNotificationCenter defaultCenter]
-//   addObserver:self
-//   selector:@selector(volumeChanged:)
-//   name:@"AVSystemController_SystemVolumeDidChangeNotification"
-//   object:nil];
+  [[NSNotificationCenter defaultCenter]
+  	addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.audioItem];
 }
 
-//- (void)volumeChanged:(NSNotification *)notification{
-//  float volume = [[[notification userInfo] objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
-//  [self.bridge.eventDispatcher sendAppEventWithName:@"currentVolume" body:@{@"volume": [[NSNumber alloc] initWithFloat:volume]}];
-//}
+- (void)playerItemDidReachEnd:(NSNotification *)notification{
+	[self.audioItem seekToTime:kCMTimeZero];
+	[self.bridge.eventDispatcher sendAppEventWithName:@"AudioEnded" body:@{@"event": @"finished"}];
+}
 
 RCT_EXPORT_METHOD(getDuration:(RCTResponseSenderBlock)callback){
   while(self.audioItem.status != AVPlayerItemStatusReadyToPlay){
@@ -39,6 +36,10 @@ RCT_EXPORT_METHOD(play){
 
 RCT_EXPORT_METHOD(pause){
   [self.audioPlayer pause];
+}
+
+RCT_EXPORT_METHOD(seekToTime:(nonnull NSNumber *)toTime){
+	[self.audioPlayer seekToTime: CMTimeMakeWithSeconds([toTime floatValue], NSEC_PER_SEC)];
 }
 
 @end
