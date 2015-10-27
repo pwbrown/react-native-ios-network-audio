@@ -31,7 +31,20 @@ audio.play();
 audio.pause();
 ```
 
-## Later Additions
-1. Listener for current Time
-2. Listener for volume Level
-3. Audio queue
+## New Additions
+<ol>
+<li>Audio will automatically set time to zero once it has reached the end</li>
+<li>New Function to seek to a certain time in the audio clip</li>
+</ol>
+
+```javascript
+//Listen for audio end
+var {NativeAppEventEmmiter} = require('react-native');
+var subscription = NativeAppEventEmitter.addListener(
+	'AudioEnded',
+	(trigger) => {console.log(trigger.event)};
+);
+
+//To seek to a specific time in seconds
+audio.seekToTime(time_in_seconds);
+```
