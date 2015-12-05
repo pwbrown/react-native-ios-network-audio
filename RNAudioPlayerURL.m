@@ -24,6 +24,7 @@ RCT_EXPORT_METHOD(initWithURL:(NSString *)url){
 }
 
 RCT_EXPORT_METHOD(getDuration:(RCTResponseSenderBlock)callback){
+  if(!([url length]>0)) return;
   while(self.audioItem.status != AVPlayerItemStatusReadyToPlay){
   }  //this is kind of crude but it will prevent the app from crashing due to a "NAN" return(this allows the getDuration method to be executed in the componentDidMount function of the React class without the app crashing
   float duration = CMTimeGetSeconds(self.audioItem.duration);

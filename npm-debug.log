@@ -1,0 +1,99 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish',
+1 verbose cli   '--force' ]
+2 info using npm@2.14.4
+3 info using node@v4.1.1
+4 warn using --force I sure hope you know what you are doing.
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/philipbrown/Documents/IOS Development/React-Native/react-native-ios-network-audio',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/philipbrown/.npm/react-native-ios-network-audio/0.0.5/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/philipbrown/.npm/react-native-ios-network-audio/0.0.5/package.tgz',
+10 verbose tar pack   '/Users/philipbrown/Documents/IOS Development/React-Native/react-native-ios-network-audio' ]
+11 verbose tarball /Users/philipbrown/.npm/react-native-ios-network-audio/0.0.5/package.tgz
+12 verbose folder /Users/philipbrown/Documents/IOS Development/React-Native/react-native-ios-network-audio
+13 info prepublish react-native-ios-network-audio@0.0.5
+14 verbose addLocalTarball adding from inside cache /Users/philipbrown/.npm/react-native-ios-network-audio/0.0.5/package.tgz
+15 silly cache afterAdd react-native-ios-network-audio@0.0.5
+16 verbose afterAdd /Users/philipbrown/.npm/react-native-ios-network-audio/0.0.5/package/package.json not in flight; writing
+17 verbose afterAdd /Users/philipbrown/.npm/react-native-ios-network-audio/0.0.5/package/package.json written
+18 silly publish { name: 'react-native-ios-network-audio',
+18 silly publish   version: '0.0.5',
+18 silly publish   tags: [ 'react', 'native', 'ios', 'audio', 'player', 'url' ],
+18 silly publish   description: 'Audio player implementation for web-based url audio clips using ios standards',
+18 silly publish   main: 'index.js',
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git://github.com/pwbrown/react-native-ios-network-audio.git' },
+18 silly publish   keywords: [ 'react', 'native', 'ios', 'audio', 'player', 'url' ],
+18 silly publish   author: { name: 'Philip Brown', email: 'brown.philip1294@yahoo.com' },
+18 silly publish   licenses: [ { type: 'MIT', url: 'http://www.opensource.org/licenses/MIT' } ],
+18 silly publish   bugs: { url: 'https://github.com/pwbrown/react-native-ios-network-audio/issues' },
+18 silly publish   dependencies: { 'react-native': '*' },
+18 silly publish   readme: '# react-native-ios-network-audio\n\nIOS class to add react-native implementation for web audio urls(look at AVPlayer documentation for audio compatibility). Tested using mp3 urls.\n\n## Add it to your project\n<ol>\n\t<li>Run \'<a href="https://www.npmjs.com/package/react-native-ios-network-audio">npm install react-native-ios-network-audio --save</a>\'</li>\n\t<li>Add .h and .m files to "your_project_name" folder in XCode and restart application</li>\n\t<li>var audio = require(\'react-native\').NativeModules.RNAudioPlayerURL;</li>\n</ol>\n\n## Basic usage\n\n```javascript\n//To initialize the audio clip\naudio.initWithURL("http://your_audio_url_here");\n\n//To retrieve the length of the clip in seconds as a float\naudio.getDuration((duration) => {\n\t//do what you need with duration variable\n\t//***Example\n\tvar minutes = Math.floor(duration/60);\n\tvar seconds = Math.ceil((duration/60 - minutes) * 60);\n\tthis.setState({minutes: minutes, seconds: seconds, totalSeconds: duration});\n});\n\n//To play audio clip\naudio.play();\n\n//To pause audio clip\naudio.pause();\n```\n\n## New Additions\n<ol>\n<li>Audio will automatically set time to zero once it has reached the end</li>\n<li>New Function to seek to a certain time in the audio clip</li>\n</ol>\n\n```javascript\n//Listen for audio end\nvar {NativeAppEventEmmiter} = require(\'react-native\');\nvar subscription = NativeAppEventEmitter.addListener(\n\t\'AudioEnded\',\n\t(trigger) => {console.log(trigger.event)};\n);\n\n//To seek to a specific time in seconds\naudio.seekToTime(time_in_seconds);\n```',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '258cb2e2aed9780f658a219b6ba337e886c71293',
+18 silly publish   homepage: 'https://github.com/pwbrown/react-native-ios-network-audio#readme',
+18 silly publish   _id: 'react-native-ios-network-audio@0.0.5',
+18 silly publish   scripts: {},
+18 silly publish   _shasum: 'c447c7f0ddf3b11de51ab841ceea2e1953e3c96a',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name react-native-ios-network-audio
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/react-native-ios-network-audio
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/philipbrown/.npm/react-native-ios-network-audio/0.0.5/package.tgz
+26 verbose request uri https://registry.npmjs.org/react-native-ios-network-audio
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 11:48:25 AM
+29 verbose request using bearer token for auth
+30 verbose request id 8fbdf2f3a77a6763
+31 http request PUT https://registry.npmjs.org/react-native-ios-network-audio
+32 http 403 https://registry.npmjs.org/react-native-ios-network-audio
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=60',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Tue, 27 Oct 2015 15:48:26 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-jfk1020-JFK',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1445960905.454743,VS0,VE630' }
+34 verbose request invalidating /Users/philipbrown/.npm/registry.npmjs.org/react-native-ios-network-audio on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 0.0.5." : react-native-ios-network-audio
+36 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:263:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:251:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:171:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:87:13)
+36 verbose stack     at Request.emit (events.js:172:7)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1073:14)
+36 verbose stack     at emitOne (events.js:82:20)
+36 verbose stack     at Request.emit (events.js:169:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1019:12)
+37 verbose statusCode 403
+38 verbose pkgid react-native-ios-network-audio
+39 verbose cwd /Users/philipbrown/Documents/IOS Development/React-Native/react-native-ios-network-audio
+40 error Darwin 15.0.0
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish" "--force"
+42 error node v4.1.1
+43 error npm  v2.14.4
+44 error code E403
+45 error "You cannot publish over the previously published version 0.0.5." : react-native-ios-network-audio
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
