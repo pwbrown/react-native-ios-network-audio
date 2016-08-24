@@ -2,7 +2,6 @@
 
 #import "RNAudioPlayerURL.h"
 #import "RCTBridge.h"
-#import "RCTEventDispatcher.h"
 
 @implementation RNAudioPlayerURL
 
@@ -19,9 +18,14 @@ RCT_EXPORT_METHOD(initWithURL:(NSString *)url){
   	addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.audioItem];
 }
 
+- (NSArray<NSString *> *)supportedEvents
+{
+  return nil;
+}
+
 - (void)playerItemDidReachEnd:(NSNotification *)notification{
 	[self.audioItem seekToTime:kCMTimeZero];
-	[self.bridge.eventDispatcher sendAppEventWithName:@"AudioEnded" body:@{@"event": @"finished"}];
+	[self sendEventWithName:@"AudioEnded" body:@{@"event": @"finished"}];
 }
 
 RCT_EXPORT_METHOD(getDuration:(RCTResponseSenderBlock)callback){
