@@ -20,7 +20,8 @@ RCT_EXPORT_METHOD(initWithURL:(NSString *)url){
 
 - (NSArray<NSString *> *)supportedEvents
 {
-  return nil;
+  NSArray *events = @[@"AudioEnded"];
+  return events;
 }
 
 - (void)playerItemDidReachEnd:(NSNotification *)notification{
